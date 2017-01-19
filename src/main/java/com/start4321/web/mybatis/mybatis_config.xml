@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- 별명으로 지명을 바꿈; -->
+		<typeAlias type="com.start4321.web.model.ItemShop" alias="Item"/>
+		<typeAlias type="com.start4321.web.model.DateSearchList" alias="DateSearch"/>
+	</typeAliases>
+	
+<!-- 개발용인지 실제 배포용인지 default값을 주면 됨. -->
+<!-- 여기선 DB연결만! -->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/sinnaradb"/>
+        <property name="username" value="root"/>
+        <property name="password" value="1111"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers>
+  <!-- 밑에 XML문서는 SQL문을 작성하기 위한 곳 (패키지 이름 + 파일명) -->
+    <mapper resource="com/start4321/web/mybatis/ItemMapper.xml"/>
+  </mappers>
+</configuration>

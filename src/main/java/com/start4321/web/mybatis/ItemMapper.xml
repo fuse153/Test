@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 다른 것과 구별하기 위해 반드시 기입해야 함. -->
+<mapper namespace="com.start4321.web.mybatis.ItemMapper">
+	<!-- Dao에서 수행하는 sql문들을 가져옴. -->
+	<!-- 태그끼리 구별하기 위해 id값 필요; resultType는 클래스 형식을 기입. -->
+	<!-- select를 하고, 그 값을 Board(DTO)에 담아서 BoardManager에게 getList메서드에게 전달 -->
+	<select id="getList" resultType="Item">
+		select * from pur_history 
+	</select>
+
+	<select id="getSearchList" parameterType="DateSearch" resultType="Item">
+		select * from pur_history where pur_date between #{from} and #{to}
+	</select>
+	
+	<insert id="input" parameterType="Item">
+		insert into pur_history(pur_date,pur_way,sum,util_kind) values(now(),#{pur_way},#{sum},#{util_kind})
+	</insert>
+	
+	<delete id="delete" parameterType="List">
+		delete 
+		from pur_history
+		<where>
+			pur_num in
+			<foreach collection="list" item="delete_pur_num" separator="," open="(" close=")">
+				#{delete_pur_num}
+			</foreach>
+		</where>
+	</delete>
+	
+</mapper>
