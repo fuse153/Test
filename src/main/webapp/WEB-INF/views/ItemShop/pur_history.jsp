@@ -17,7 +17,7 @@
 
 <script src="resources/bootstrap/js/jquery-3.1.1.min.js"></script>
 <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-
+ 
 <script>
 $( function(){
 	$("#btn_search").click(

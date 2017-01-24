@@ -11,3 +11,4 @@ public interface ItemService {
 	public void input(ItemShop itemshop) throws SQLException;
 	public void delete(int[] delete_pur_num) throws SQLException;
 }
+  
