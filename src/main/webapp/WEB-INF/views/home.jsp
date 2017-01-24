@@ -268,7 +268,7 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pur_history.ItemShop">아이템 구매</a></li>
+            <li><a href="purchase.ItemShop">아이템 구매</a></li>
             <li><a href="/login/login">로그인</a></li>
             <li><a href="<c:url value="/register/step1" />">회원가입 하기</a></li>
           </ul>

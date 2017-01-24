@@ -37,21 +37,34 @@ $( function(){
 	
 	$("#btn_delete").click(
 			function(){
-				if(("input:checkbox[name=delete_pur_num]:checked").length == 0){
+				if($('input:checkbox[name="delete_pur_num"]:checked').length == 0){
 					alert("삭제할 항목을 선택해주세요.");
 					return false;
 				}
 				else{
-					$("#delete").submit();
+					$('#delete').submit();
 				}
 				//location.href="/delete.ItemShop?delete_num="+result;
+	});
+	
+	$("#checkAll").click(function() {
+		if($('input:checkbox[name="delete_pur_num"]:checked').length == 0){
+			$("input[name=delete_pur_num]:checkbox").each(function() {
+			$(this).attr("checked", true);
+			});
+		}
+		else{
+			$("input[name=delete_pur_num]:checkbox").each(function() {
+				$(this).attr("checked", false);
+			});
+		}
 	});
 });
 	
 </script>
 </head>
 <body>
-	<h1>리스트 페이지</h1>
+<br><br><br>
 	<center>
 		<div class="container">
 			<div class="row">
@@ -66,6 +79,7 @@ $( function(){
 								src="http://www.joara.com/images/content/mypage/t_utilization_mana.gif"
 								alt="이용권 관리">
 						</h3>
+						<br><br>
 
 					</div>
 
@@ -74,18 +88,13 @@ $( function(){
 							action="pur_history.ItemShop">
 							<input type="hidden" name="mode" value="" /> 
 							<input type="hidden" name="old" value="" /> 
-								<select id="s_year" name="s_year" class="fe_select">
-								<option value=-1 selected>년도</option>
-								<option value='2010'>2010년</option>
-								<option value='2011'>2011년</option>
-								<option value='2012'>2012년</option>
-								<option value='2013'>2013년</option>
-								<option value='2014'>2014년</option>
-								<option value='2015'>2015년</option>
-								<option value='2016'>2016년</option>
-								<option value='2017'>2017년</option> 
-
-							</select> <select id="s_month" name="s_month" class="fe_select">
+								<select id="s_year" name="s_year" >
+								<%
+									
+								
+								%>	
+							</select> 
+							<select id="s_month" name="s_month" class="fe_select">
 								<option value='-1' selected>월</option>
 								<option value='1'>1 월</option>
 								<option value='2'>2 월</option>
@@ -201,7 +210,6 @@ $( function(){
 
 
 				<form action = "/delete.ItemShop" id="delete" method="POST">
-				<center><input type ="button" id="btn_delete"  value="삭제"></center>
 				<div class="col-md-12">
 					<table class="table table-hover table-bordered">
 						<colgroup>
@@ -212,7 +220,7 @@ $( function(){
 						</colgroup>
 						<thead>
 							<tr>
-								<th style="text-align : center;">전체 선택</th>
+								<th style="text-align : center;"><input type="checkbox" id="checkAll" value="check all" /></th>
 								<th style="text-align : center;">결제 일시</th>
 								<th style="text-align : center;">구매 방법</th>
 								<th style="text-align : center;">구매 금액</th>
@@ -230,7 +238,7 @@ $( function(){
 								
 										<c:forEach items="${item}" var="item" >
 											<tr>
-											<td><label><input type ="checkbox" name="delete_pur_num" value="${item.getPur_num()}"></label></td>
+											<td><center><label><input type ="checkbox" name="delete_pur_num" value="${item.getPur_num()}"></label></center></td>
 												<td>${item.getPur_date()}</td>
 												<td>${item.getPur_way()}</td>
 												<td>${item.getSum()}</td>
@@ -242,6 +250,8 @@ $( function(){
 								</c:choose>
 							</tbody>
 					</table>
+						<center><input type ="button" id="btn_delete"  value="삭제"></center>
+							
 				</div>
 				</form>
 			</div>
