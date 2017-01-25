@@ -1,9 +1,12 @@
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 	
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html; charset=utf-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -88,11 +91,18 @@ $( function(){
 							action="pur_history.ItemShop">
 							<input type="hidden" name="mode" value="" /> 
 							<input type="hidden" name="old" value="" /> 
-								<select id="s_year" name="s_year" >
-								<%
-									
+							<select id="s_year" name="s_year">
+
+								<option value="">년도</option>
+								<c:set var="now" value="<%=new java.util.Date()%>" />
+								<fmt:formatDate value="${now}" pattern="yyyy" var="yearStart" />
+								<c:forEach begin="0" end="50" var="result" step="1">
+									<option value="<c:out value="${yearStart - result}" />"
+										<c:if test="${(yearStart - result) == searchVO.bsnsYear}"> 
+           								selected="selected"</c:if>><c:out
+										value="${yearStart - result}" /></option>
+								</c:forEach>
 								
-								%>	
 							</select> 
 							<select id="s_month" name="s_month" class="fe_select">
 								<option value='-1' selected>월</option>
