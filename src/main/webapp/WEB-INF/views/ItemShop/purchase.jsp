@@ -1,3 +1,7 @@
+<!-- 작성자 : 김재환
+	  작성일자 : 2017-2-3
+	  페이지 역할 : 구매를 담당하고 결제하는 곳입니다. -->
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +16,7 @@
 <script src="resources/bootstrap/css/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<!--  구매를 담당하는 영역입니다. -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2">

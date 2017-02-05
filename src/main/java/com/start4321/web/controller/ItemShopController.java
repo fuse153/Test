@@ -1,3 +1,7 @@
+/*   작성자 : 김재환
+	  작성일자 : 2017-2-3
+	  페이지 역할 : purhistory.jsp에게 처리해서 값을 보내는 컨트롤러 입니다. */
+
 package com.start4321.web.controller;
 
 import java.sql.SQLException; 
@@ -24,7 +28,7 @@ public class ItemShopController{
 	
 
 	
-	
+	//삭제 맵핑
 	@RequestMapping("/delete.ItemShop")
 	public String pur_historydelete(int[] delete_pur_num) throws SQLException{
 	
@@ -33,6 +37,7 @@ public class ItemShopController{
 		
 	}
 	
+	// 구매내역이 들어왔을 때
 	@RequestMapping("/pur_history.ItemShop")
 	public ModelAndView pur_historylist(String from , String to) throws SQLException{
 		date.setFrom(from);
@@ -50,6 +55,7 @@ public class ItemShopController{
 		return "ItemShop/purchase";
 	}
 	
+	// 구매하는 페이지(purchase.jsp)의 값을 쪼개어서 서비스에게 전달하는 페이지
 	@RequestMapping(value = "/purchase.ItemShop", method=RequestMethod.POST)
 	public String purchasecomplete(@ModelAttribute ItemShop itemshop) throws SQLException{
 		String util_kind = itemshop.getUtil_kind();

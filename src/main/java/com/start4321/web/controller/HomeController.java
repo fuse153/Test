@@ -1,3 +1,7 @@
+/*   작성자 : 김재환
+	  작성일자 : 2017-2-3
+	  페이지 역할 : Home.jsp 를 연결하는 컨트롤러 입니다. */
+
 package com.start4321.web.controller;
 
 import java.text.DateFormat;

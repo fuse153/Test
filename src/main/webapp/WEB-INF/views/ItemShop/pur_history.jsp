@@ -16,12 +16,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>구매 내역</title>
 <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+
+
 <!-- 부트스트렙에서 자바스크립트를 쓰려면, jquery도 있어야 함. jquery가 반드시 먼저, 임포트 -->
 
 <script src="resources/bootstrap/js/jquery-3.1.1.min.js"></script>
 <script src="resources/bootstrap/js/bootstrap.min.js"></script>
  
 <script>
+
+
+// 아이템 검색하는   jquery 부분 입니다.
+
 $( function(){
 	$("#btn_search").click(
 			function(){
@@ -92,7 +98,7 @@ $( function(){
 							<input type="hidden" name="mode" value="" /> 
 							<input type="hidden" name="old" value="" /> 
 							<select id="s_year" name="s_year">
-
+							
 								<option value="">년도</option>
 								<c:set var="now" value="<%=new java.util.Date()%>" />
 								<fmt:formatDate value="${now}" pattern="yyyy" var="yearStart" />
@@ -238,6 +244,7 @@ $( function(){
 							</tr>
 						</thead>
 							<tbody>
+							<!-- JSTL로 컨트롤러에서 값을 처리해서 온 값을 뿌려주는 부분 입니다. -->
 								<c:choose>
 									<c:when test="${item.size() eq '0' }">
 										<tr>

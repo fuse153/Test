@@ -61,10 +61,7 @@ public class ItemManager {
 		}
 		
 		
-	//	for (int d:list) {
-	//		System.out.println(d);
-	//	}
-		
+
 		// 연결 정보
 		SqlSession session = sqlSessionFactory.openSession();
 		
