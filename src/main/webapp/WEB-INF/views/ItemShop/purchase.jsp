@@ -226,8 +226,7 @@
 							<br><br><br>
 						
 						<!-- 결제 수단 선택 -->
-						<h4><img src="http://www.joara.com/images/content/itemshop/t_payment.gif" alt="결제 수단 선택"
-								 style="vertical-align:middle"/></h4>
+						<h4><button type="button" class="btn btn-primary"> 결제 수단 선택</button></h4>
 								 
 								 <br><br><br>
 								 
